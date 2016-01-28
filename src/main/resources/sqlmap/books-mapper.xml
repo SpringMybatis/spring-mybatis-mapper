@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ym.project.booksMapper">
+
+	<!-- 书本插入(Oracle) -->
+	<insert id="insertBookListOracle" parameterType="com.ibs.spring.mybatis.mapper.model.Book">
+		insert into books(bk_id, bk_category, bk_title, bk_titlelang, bk_year, bk_price, bk_author, bk_logo) 
+		values (seq_book.nextval,#{bookCategory},#{bookTitle},#{bookTitleLang},#{bookYear},#{bookPrice},#{bookAuthor},#{bookLogo})
+	</insert>
+
+	<!-- 书本插入(MySQL) -->
+	<insert id="insertBookListMysql" parameterType="com.ibs.spring.mybatis.mapper.model.Book">
+		insert into books(bk_category, bk_title, bk_titlelang, bk_year, bk_price, bk_author, bk_logo) 
+		values (#{bookCategory},#{bookTitle},#{bookTitleLang},#{bookYear},#{bookPrice},#{bookAuthor},#{bookLogo})
+	</insert>
+
+</mapper>
